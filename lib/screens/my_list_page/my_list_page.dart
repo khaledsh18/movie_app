@@ -19,7 +19,7 @@ class MyListPage extends StatelessWidget {
           valueListenable: Hive.box('My_List').listenable(),
           builder: (context, box, child) {
             if (box.isEmpty) {
-              return const EmptyMovieTile();
+              return Center(child: Text('Your list is empty',style: Theme.of(context).textTheme.titleLarge,),);
             }
             return CustomScrollView(
               physics: const BouncingScrollPhysics(),
