@@ -1,5 +1,3 @@
-import 'package:movie_app/entities/movie_modal.dart';
-
 import 'genre.dart';
 
 class MovieDetails {

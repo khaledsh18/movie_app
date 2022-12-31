@@ -1,4 +1,3 @@
-import 'package:get/get.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 import '../../entities/movie.dart';
@@ -10,7 +9,6 @@ class MyListFunctions{
 
   Future<void> deleteMovie(MovieModal movieModal) async{
     var box = Hive.box('My_List');
-
       await box.delete(movieModal.movie.id.toString());
   }
 

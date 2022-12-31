@@ -1,12 +1,10 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:movie_app/entities/cast.dart';
 import 'package:movie_app/screens/my_list_page/my_list_functions.dart';
 
 import '../constants.dart';
 import '../entities/movie.dart';
-import 'clip_path/clip_shadow_path.dart';
 import 'clip_path/custom_clip_path.dart';
 
 class MainMovieTile extends StatelessWidget {
@@ -80,10 +78,9 @@ class MovieListTile extends StatefulWidget {
   final Function()? onTap;
   final double width;
 
-  MovieListTile(
+  const MovieListTile(
       {Key? key, required this.movie, this.onTap, required this.width})
-      : super(key: key) {
-  }
+      : super(key: key);
 
   @override
   State<MovieListTile> createState() => _MovieListTileState();
@@ -95,36 +92,35 @@ class _MovieListTileState extends State<MovieListTile> {
   @override
   Widget build(BuildContext context) {
     setIsBookmarked(widget.movie);
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 25),
-      child: GestureDetector(
-        onTap: widget.onTap,
-        child: Stack(
-          alignment: Alignment.topRight,
-          children: [
-            Material(
-              elevation: 12,
-              color: Colors.transparent,
-              borderRadius: BorderRadius.circular(20),
-              child: Container(
-                height: 180,
-                width: widget.width,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color: backgroundTransparent,
-                ),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(20),
-                  child: CachedNetworkImage(
-                    imageUrl:
-                        'https://image.tmdb.org/t/p/original${widget.movie.posterUrl}',
-                    fit: BoxFit.fill,
-                    errorWidget: (context, url, error) => const Center(child: Text('No Image',style: TextStyle(color: Colors.black),)),
-                  ),
+    return GestureDetector(
+      onTap: widget.onTap,
+      child: Stack(
+        children: [
+          Material(
+            elevation: 12,
+            color: Colors.transparent,
+            borderRadius: BorderRadius.circular(20),
+            child: Container(
+              height: 180,
+              width: widget.width,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                color: backgroundTransparent,
+              ),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(20),
+                child: CachedNetworkImage(
+                  imageUrl:
+                      'https://image.tmdb.org/t/p/original${widget.movie.posterUrl}',
+                  fit: BoxFit.fill,
+                  errorWidget: (context, url, error) => const Center(child: Text('No Image',style: TextStyle(color: Colors.black),)),
                 ),
               ),
             ),
-            GestureDetector(
+          ),
+          Positioned(
+            right: 0,
+            child: GestureDetector(
               onTap: ()async{
                 await MyListFunctions().addDeleteMovie(movie: widget.movie,isBookmarked: isBookmarked);
                 setIsBookmarked(widget.movie);
@@ -140,13 +136,13 @@ class _MovieListTileState extends State<MovieListTile> {
                   ),
                   child: Visibility(
                     visible: !isBookmarked,
-                    child: Icon(Icons.add),
+                    child: const Icon(Icons.add),
                   ),
                 ),
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
@@ -167,19 +163,20 @@ class _MovieListTileState extends State<MovieListTile> {
 }
 
 class EmptyMovieListTile extends StatelessWidget {
-  const EmptyMovieListTile({Key? key}) : super(key: key);
+  final double width;
+  const EmptyMovieListTile({Key? key, required this.width}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 25),
+      padding: const EdgeInsets.symmetric(horizontal: 6.0),
       child: Material(
         elevation: 12,
         color: Colors.transparent,
         borderRadius: BorderRadius.circular(20),
         child: Container(
-          height: 150,
-          width: 130,
+          height: 180,
+          width: width,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
             color: backgroundTransparent,

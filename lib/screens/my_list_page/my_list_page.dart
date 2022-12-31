@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/adapters.dart';
-import 'package:movie_app/entities/movie.dart';
 import 'package:movie_app/entities/movie_modal.dart';
 import 'package:movie_app/screens/my_list_page/my_list_functions.dart';
 import 'package:movie_app/widgets/movie_tile.dart';

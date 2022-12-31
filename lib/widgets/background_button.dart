@@ -12,7 +12,7 @@ class DiscoverButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return BackgroundButton(
       title: 'Discover',
-      image: AssetImage('assets/images/background.png'),
+      image: const AssetImage('assets/images/background.png'),
       onPressed: (){
         Get.to(()=>DiscoverPage());
       },
@@ -27,16 +27,16 @@ class MyListButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return BackgroundButton(
       title: 'My List',
-      image: AssetImage('assets/images/background.jpg'),
+      image: const AssetImage('assets/images/background.jpg'),
       onPressed: (){
-        Get.to(()=>MyListPage());
+        Get.to(()=>const MyListPage());
       },
     );
   }
 }
 
 class BackgroundButton extends StatelessWidget {
-  BackgroundButton({
+  const BackgroundButton({
     Key? key,
     required this.image,
     this.onPressed,

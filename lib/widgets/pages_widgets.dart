@@ -38,7 +38,7 @@ class PagesListView extends StatelessWidget {
 }
 
 class PageCard extends StatelessWidget {
-  PageCard(
+  const PageCard(
       {Key? key, required this.index, this.onTap, required this.selectedPage})
       : super(key: key);
 

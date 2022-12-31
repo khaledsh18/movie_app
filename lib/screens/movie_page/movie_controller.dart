@@ -65,7 +65,7 @@ class MovieController extends GetxController{
             Get.closeCurrentSnackbar();
             setMovie(movie);
           },
-          icon: Icon(Icons.refresh_rounded),color: Colors.white,),
+          icon: const Icon(Icons.refresh_rounded),color: Colors.white,),
       ),
     );
   }

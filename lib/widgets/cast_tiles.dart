@@ -59,12 +59,12 @@ class CastListTile extends StatelessWidget {
               Container(
                 height: size.height / 5,
                 width: 150,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   borderRadius: BorderRadius.only(topRight: Radius.circular(20),topLeft: Radius.circular(20)),
                   color: backgroundTransparent,
                 ),
                 child: ClipRRect(
-                  borderRadius: BorderRadius.only(topRight: Radius.circular(20),topLeft: Radius.circular(20)),
+                  borderRadius: const BorderRadius.only(topRight: Radius.circular(20),topLeft: Radius.circular(20)),
                   child: CachedNetworkImage(
                     imageUrl:
                         'https://image.tmdb.org/t/p/original${cast.photo}',
@@ -78,7 +78,7 @@ class CastListTile extends StatelessWidget {
                 ),
               ),
               Text(cast.name,style: Theme.of(context).textTheme.bodyLarge,),
-              SizedBox(height: 5,),
+              const SizedBox(height: 5,),
               Text(cast.character),
             ],
           ),

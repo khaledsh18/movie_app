@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:get/get.dart';
-
 import 'entities/genre.dart';
 
 const SystemUiOverlayStyle kSystemUiStyle = SystemUiOverlayStyle(

@@ -60,15 +60,19 @@ class DiscoverPage extends GetView<DiscoverController> {
               ),
               delegate: SliverChildBuilderDelegate(
                 (BuildContext context, int index) {
-                  return MovieListTile(
-                    width: 170,
-                    onTap: () {
-                      movieController.isLoading.value = true;
-                      movieController
-                          .setMovie(discoverController.movies[index]);
-                      Get.to(() => MoviePage());
-                    },
-                    movie: discoverController.movies[index],
+                  Size size = MediaQuery.of(context).size;
+                  return Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 6),
+                    child: MovieListTile(
+                      width: size.width / 2,
+                      onTap: () {
+                        movieController.isLoading.value = true;
+                        movieController
+                            .setMovie(discoverController.movies[index]);
+                        Get.to(() => const MoviePage());
+                      },
+                      movie: discoverController.movies[index],
+                    ),
                   );
                 },
                 childCount: discoverController.movies.length,
@@ -90,7 +94,10 @@ class DiscoverPage extends GetView<DiscoverController> {
               ),
               delegate: SliverChildBuilderDelegate(
                     (BuildContext context, int index) {
-                  return const EmptyMovieListTile();
+                      Size size = MediaQuery.of(context).size;
+                      return EmptyMovieListTile(
+                    width: size.width / 2,
+                  );
                 },
                 childCount: 8,
               ),

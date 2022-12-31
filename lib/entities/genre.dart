@@ -23,9 +23,6 @@ class Genre {
       };
 
   static List<Map<String, Object?>> toMapList(List<Genre> genres) {
-    if (genres == null) {
-      return [];
-    }
     final List<Map<String, Object?>> genresMapList = [];
 
     for (Genre genre in genres) {

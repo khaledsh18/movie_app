@@ -36,9 +36,9 @@ class GenresListView extends StatelessWidget {
 }
 
 class GenreCard extends StatelessWidget {
-  GenreCard(
+  const GenreCard(
       {Key? key, required this.index, required this.selectedGenre, this.onTap})
-      : super(key: key) {}
+      : super(key: key);
   final Genre selectedGenre;
   final Function(Genre genre)? onTap;
   final int index;

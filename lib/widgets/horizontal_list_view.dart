@@ -2,7 +2,6 @@ import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
 import 'package:movie_app/screens/movie_page/movie_page.dart';
 
-import '../entities/cast.dart';
 import '../entities/movie.dart';
 import '../screens/movie_page/movie_controller.dart';
 import 'movie_tile.dart';
@@ -33,7 +32,7 @@ class HorizontalListView extends StatelessWidget {
             onTap: (){
               movieController.isLoading.value = true;
               movieController.setMovie(listMovies[index]);
-              Get.to(()=> MoviePage());
+              Get.to(()=> const MoviePage());
               },
           );
         },
@@ -60,7 +59,12 @@ class EmptyHorizontalListView extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         itemCount: 10,
         itemBuilder: (context, index) {
-          return const EmptyMovieListTile();
+          return const Padding(
+            padding:  EdgeInsets.only(bottom: 25.0),
+            child: EmptyMovieListTile(
+              width: 130,
+            ),
+          );
         },
         separatorBuilder: (BuildContext context, int index) => const SizedBox(
           width: 10,
@@ -90,7 +94,7 @@ class MoviesSwiper extends StatelessWidget {
             onTap: (){
               movieController.isLoading.value = true;
               movieController.setMovie(movies[index]);
-              Get.to(()=> MoviePage());
+              Get.to(()=> const MoviePage());
             },
           );
         },

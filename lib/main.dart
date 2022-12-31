@@ -64,17 +64,17 @@ class MyApp extends StatelessWidget {
       getPages: [
         GetPage(
           name: '/home',
-          page: () => HomePage(),
+          page: () => const HomePage(),
           binding: HomeBinding(),
         ),
         GetPage(
           name: '/movie',
-          page: () => MoviePage(),
+          page: () => const MoviePage(),
           binding: MovieBinding(),
         ),
         GetPage(
           name: '/my_list',
-          page: () => MyListPage(),
+          page: () => const MyListPage(),
         ),
         GetPage(
           name: '/discover',
