@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -30,10 +28,10 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'Movie App',
       debugShowCheckedModeBanner: false,
-      scrollBehavior: const MaterialScrollBehavior().copyWith(dragDevices: {
+      /*scrollBehavior: const MaterialScrollBehavior().copyWith(dragDevices: {
         PointerDeviceKind.mouse,
         PointerDeviceKind.touch,
-      }),
+      }),*/
       theme: ThemeData(
         textTheme: const TextTheme(
             titleLarge: TextStyle(
@@ -52,7 +50,7 @@ class MyApp extends StatelessWidget {
           titleTextStyle: TextStyle(
               color: primaryColor,fontFamily: 'Bebas',
             fontWeight: FontWeight.w900,
-            fontSize: 25,
+            fontSize: 24,
             letterSpacing: 1
           ),
           backgroundColor: Colors.transparent,
